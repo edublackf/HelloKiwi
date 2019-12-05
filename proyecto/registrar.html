@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <title>Sign Up</title> 
+    <link rel="shortcut icon" href="img/kiwi.png" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+    <link rel="stylesheet" href="estilosloginregistro.css">
+
+</head>  
+<body>
+
+<div class="row">	
+    <div class="col-sm-12 col-md-6 col-lg-6">
+    <form method="post" action="create-account.php" method="POST" class="formulario">
+        <h1>Regístrate</h1>
+        <div class="form-group">
+        <i class="fas fa-user icon"></i>				
+            <input type="text" class="form-control" name="name" placeholder="Ingresa tu nombre" required>			
+      </div>
+      <p></p>
+      <div class="form-group">
+            <i class="fas fa-envelope icon"></i>				
+            <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa tu email" required>
+        </div>
+      <p></p>
+      <div class="form-group">
+            <i class="fas fa-key icon"></i>				
+            <input type="password" class="form-control" name="password" placeholder="Crea una contraseña" required>
+        </div>
+        <p></p>
+      <input type="submit" class="button">
+      <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+         <p>¿Ya tienes una cuenta? <a class="link" href="login.html">Iniciar Sesion</a></p>
+    </form>		
+    </div>		
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

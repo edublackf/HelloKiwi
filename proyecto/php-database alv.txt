@@ -1,0 +1,99 @@
+----------------index-----------------------
+
+<?php
+  session_start();
+
+  require 'database.php';
+  if (isset($_SESSION['id_usuario'])) {
+    $records = $conn->prepare('SELECT id, correo, contraseña FROM usuarios WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['id_usuario']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $user = null;
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
+------------------------------login------------------------------
+
+<?php
+  session_start();
+  if (isset($_SESSION['id_usuario'])) {
+      header("Location: /proyecto")
+  }
+  require 'database.php';
+  if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
+    $records = $conn->prepare('SELECT id, correo, contraseña FROM usuarios WHERE correo = :correo');
+    $records->bindParam(':correo', $_POST['correo']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $message = '';
+    if (count($results) > 0 && password_verify($_POST['contraseña'], $results['contraseña'])) {
+      $_SESSION['id_usuario'] = $results['id'];
+      header("Location: /proyecto")
+    } else {
+      $message = 'Lo sentimos, las credenciales no coinciden';
+    }
+  }
+?>
+
+body. 
+
+    <?php if(!empty($message)): ?>
+        <p><?= $message ?></p>
+    <?php endif; ?>
+---------------------------logout------------------------
+
+<?php
+  session_start();
+  session_unset();
+  session_destroy();
+  header('Location: /proyecto');
+?>
+
+----------------------------------registrar-------------------------------------
+
+<?php
+  require 'database.php';
+  $message = '';
+
+  if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
+    $sql = "INSERT INTO usuarios (correo, contraseña) VALUES (:correo, :contraseña)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':correo', $_POST['correo']);
+    $contraseña = password_hash($_POST['contraseña'], password_bcrypt);
+    $stmt->bindParam(':contraseña', $contraseña);
+    if ($stmt->execute()) {
+      $message = 'Usuario creado satisfactoriamente!';
+    } else {
+      $message = 'Lo sentimos, ocurrió un problema al crear su usuario';
+    }
+  }
+?>
+
+body..
+
+    <?php if(!empty($message)): ?>
+        <p><?= $message ?></p>
+    <?php endif; ?>
+
+----------------------database---------------------------
+
+<?php
+$server  =  ' localhost' ;
+$username  =  ' root ' ;
+$contraseña  =  ' ' ;
+$database  =  ' tienda ' ;
+try{
+  $conn =  new  PDO ( " mysql: host = $server ;dbname = $database ; " , $username , $password );
+}catch( PDOException  $e){
+  die( 'Error de conexión:'.$e -> getMessage());
+}
+?>
+
+
+
+

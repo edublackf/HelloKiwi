@@ -1,0 +1,9 @@
+$server  =  ' localhost' ;
+$username  =  ' root ' ;
+$contraseña  =  ' ' ;
+$database  =  ' proyecto ' ;
+try{
+  $conn =  new  PDO ( " mysql: host = $server ;dbname = $database ; " , $username , $password );
+}catch( PDOException  $e){
+  die( 'Error de conexión:'.$e -> getMessage());
+}

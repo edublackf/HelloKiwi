@@ -1,0 +1,83 @@
+* {
+  margin:0;
+  padding: 0;
+
+}
+h1{
+  padding-top: 80px;
+  text-align: center;
+  background-color: #27ae60;
+  align-self: auto;
+}
+body {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  background: url(img/imagen.jpg);
+
+}
+p {
+  font-size: 20px;
+}
+img{
+  height: 750px;
+  width: 1300px;
+  padding: 25px;
+
+}
+/* ------------------------- */
+/* NAVBAR */
+/* ------------------------- */
+.menu {
+  background-color: #27ae60;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  padding-top: 0px;
+}
+nav ul{
+  list-style: none;
+  overflow: hidden;
+}
+nav ul li {
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 110px;
+  font-size: 27px;
+  transition: 0.4s ease all;
+}
+nav ul li:hover {
+  background: #3ead47;
+}
+.menu a:hover {
+  transform: translateY(18px);
+}
+@media screen and (max-width: 992px) {
+  p {
+    font-size: 18px;
+  }
+
+  .contenido-header .texto {
+    font-size: 60px;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .nosotros .titulo,
+  .productos .titulo {
+    font-size: 30px;
+  }
+nav{
+  background-color: #27ae60;
+  text-align: center;
+}
+}
+
+
